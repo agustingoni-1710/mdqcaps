@@ -1,13 +1,16 @@
-import {StyleSheet, Text, View, TextInput, Button, StatusBar, SafeAreaView, FlatList} from 'react-native';
+import {StyleSheet, Text, View, TextInput, Button, StatusBar, SafeAreaView, FlatList, TouchableOpacity, Modal} from 'react-native';
 
 import { styles } from './styles';
 import { useState } from 'react';
+
 
 
 export default function App() {
 
   const [task, setTask] = useState('')
   const [tasks, setTasks] = useState([])
+  const [isVisible, setIsVisible] = useState(false)
+  const [selectedTask, setSelectedTask] = useState(null)
   const [borderColor,setBorderColor] = useState ('#FFEAEC')
 
   const onHadlerFocus = () =>{
@@ -33,11 +36,25 @@ export default function App() {
 
     setTask('')
   }
+
+  const onHandlerModal = (item) => {
+    setIsVisible(true)
+    setSelectedTask(item)
+  }
+
+  const onHandlerDelete = (id) =>{
+    setTasks((prevTasks)=>prevTasks.filter((task)=>task.id != id))
+    setIsVisible(false)
+  }
+
   const renderItem = ({item}) => (
-    <View style={styles.containerItem} key={item.id}>
+    <TouchableOpacity onPress={() => onHandlerModal(item)} style={styles.containerItem}>
       <Text style={styles.listItem}>{item.value}</Text>
-    </View>
+      <Text style={styles.icon}>X</Text>
+    </TouchableOpacity>
   )
+
+  
 
   return (
 
@@ -66,15 +83,37 @@ export default function App() {
            
           <Button disabled={task.length == 0} title='Create'color='#424D9E' onPress={onHadlerCreateTask}/>
         </View>
-        <View style={styles.listContainer}>
+        
           <FlatList
             data={tasks}
             renderItem={renderItem}
-            style={styles.list}
+            style={styles.listContainer}
+            contentContainerStyle={styles.list}
             alwaysBounceVertical={false}
-          /> 
-        </View>
+            keyExtractor={item => item.id}
+          />         
       </View>
+      <Modal visible={isVisible}animationType='slide'>
+        <View style={styles.modalContainer}>
+          <Text style={styles.modalTitle}>Task Detail</Text>
+          <View style={styles.modalDetailContainer}>
+            <Text style={styles.modalDetailMessage}>Are yoy sure to delete this item?</Text>
+            <Text style={styles.selectedTask}>{selectedTask?.value}</Text>
+          </View>
+          <View style={styles.modalButtonContainer}>
+            <Button 
+              title='Cancel'
+              color={'blue'}
+              onPress={()=>setIsVisible(false)}
+            />
+            <Button 
+              title='Delete' 
+              color={'red'}
+              onPress={()=>onHandlerDelete(selectedTask?.id)}
+            />
+          </View>
+        </View>
+      </Modal>
    </SafeAreaView> 
   );
 }
