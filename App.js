@@ -5,14 +5,34 @@ import { useState } from 'react';
 
 
 export default function App() {
-  const [borderColor,setBorderColor] = useState ('#FFEAEC');
+
+  const [task, setTask] = useState('')
+  const [tasks, setTasks] = useState([])
+  const [borderColor,setBorderColor] = useState ('#FFEAEC')
 
   const onHadlerFocus = () =>{
     setBorderColor('#424D9E')
   }
-   const onHadlerBlur = () =>{
+  
+  const onHadlerBlur = () =>{
     setBorderColor('#FFEAEC')
-   }
+  }
+
+  const onHadlerChangeText = (text) => {
+    setTask(text)
+  }
+
+  const onHadlerCreateTask = () => {
+    setTasks([
+      ... tasks,
+      {
+        id: Date.now().toString(),
+        value: task
+      }
+    ])
+
+    setTask('')
+  }
 
   return (
 
@@ -35,9 +55,11 @@ export default function App() {
             placeholderTextColor={'#CCCCCC'}
             onFocus={onHadlerFocus}
             onBlur={onHadlerBlur}
+            onChangeText={onHadlerChangeText}
+            value={task}
           /> 
            
-          <Button title='Create'color='#424D9E'/>
+          <Button title='Create'color='#424D9E' onPress={onHadlerCreateTask}/>
         </View>
       </View>
    </SafeAreaView> 
