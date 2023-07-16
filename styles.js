@@ -30,7 +30,7 @@ export const styles = StyleSheet.create({
     },
 
     listContainer: {
-        flex: 1,
+        
         marginTop:25,
         
     },
@@ -62,7 +62,7 @@ export const styles = StyleSheet.create({
     },
 
     list: {
-      flex: 1,
+      
       gap: 15,// gap sirve para que la linea de la lista tome todo el tamano de la pantalla
     }
 

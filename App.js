@@ -70,7 +70,8 @@ export default function App() {
           <FlatList
             data={tasks}
             renderItem={renderItem}
-            contentContainerStyle={styles.list}
+            style={styles.list}
+            alwaysBounceVertical={false}
           /> 
         </View>
       </View>
