@@ -70,14 +70,8 @@ export default function App() {
           <FlatList
             data={tasks}
             renderItem={renderItem}
+            contentContainerStyle={styles.list}
           /> 
-          {
-            tasks.map((item) => (
-              <View style={styles.containerItem} key={item.id}>
-                <Text style={styles.listItem}>{item.value}</Text>
-              </View>
-            ))
-          }
         </View>
       </View>
    </SafeAreaView> 

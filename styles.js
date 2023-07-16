@@ -30,8 +30,9 @@ export const styles = StyleSheet.create({
     },
 
     listContainer: {
+        flex: 1,
         marginTop:25,
-        gap: 15, // gap sirve para que la linea de la lista tome todo el tamano de la pantalla
+        
     },
 
     containerItem: {
@@ -55,6 +56,15 @@ export const styles = StyleSheet.create({
 
     },
     listItem: {
-        
+        fontSize: 15,
+        fontWeight : 'bold',
+        color: '#212121',
+    },
+
+    list: {
+      flex: 1,
+      gap: 15,// gap sirve para que la linea de la lista tome todo el tamano de la pantalla
     }
+
+
   });
