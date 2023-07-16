@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View, TextInput, Button, StatusBar, SafeAreaView} from 'react-native';
+import {StyleSheet, Text, View, TextInput, Button, StatusBar, SafeAreaView, FlatList} from 'react-native';
 
 import { styles } from './styles';
 import { useState } from 'react';
@@ -33,6 +33,11 @@ export default function App() {
 
     setTask('')
   }
+  const renderItem = ({item}) => (
+    <View style={styles.containerItem} key={item.id}>
+      <Text style={styles.listItem}>{item.value}</Text>
+    </View>
+  )
 
   return (
 
@@ -59,9 +64,13 @@ export default function App() {
             value={task}
           /> 
            
-          <Button title='Create'color='#424D9E' onPress={onHadlerCreateTask}/>
+          <Button disabled={task.length == 0} title='Create'color='#424D9E' onPress={onHadlerCreateTask}/>
         </View>
         <View style={styles.listContainer}>
+          <FlatList
+            data={tasks}
+            renderItem={renderItem}
+          /> 
           {
             tasks.map((item) => (
               <View style={styles.containerItem} key={item.id}>
