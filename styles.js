@@ -26,7 +26,6 @@ export const styles = StyleSheet.create({
       paddingHorizontal: 10, // separa el texto del borde que se encuentra dentro del input
       color: 'blue',
       height: 40,
-      borderColor: '#424D9E',
       fontSize: 14,  
     }
   });
