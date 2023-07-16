@@ -64,6 +64,7 @@ export const styles = StyleSheet.create({
     list: {
       
       gap: 15,// gap sirve para que la linea de la lista tome todo el tamano de la pantalla
+      paddingBottom: 20,
     }
 
 
