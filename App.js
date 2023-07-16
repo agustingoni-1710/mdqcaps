@@ -61,6 +61,15 @@ export default function App() {
            
           <Button title='Create'color='#424D9E' onPress={onHadlerCreateTask}/>
         </View>
+        <View style={styles.listContainer}>
+          {
+            tasks.map((item) => (
+              <View style={styles.containerItem} key={item.id}>
+                <Text style={styles.listItem}>{item.value}</Text>
+              </View>
+            ))
+          }
+        </View>
       </View>
    </SafeAreaView> 
   );
