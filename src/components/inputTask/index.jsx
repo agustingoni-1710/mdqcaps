@@ -1,9 +1,10 @@
 import { Button, TextInput, View } from "react-native";
-
 import { styles } from "./styles";
 
 
-const inputTask = ({borderColor, onHadlerFocus, onHadlerBlur, onHadlerChangeText, task, onHadlerCreateTask}) => { 
+
+
+const InputTask = ({borderColor, onHadlerFocus, onHadlerBlur, onHadlerChangeText, task, onHadlerCreateTask}) => { 
     return(
         <View style={styles.inputContainer}>
           <TextInput 
@@ -24,4 +25,4 @@ const inputTask = ({borderColor, onHadlerFocus, onHadlerBlur, onHadlerChangeText
     );
 };
 
-export default inputTask;
+export default InputTask;

@@ -1,7 +1,7 @@
 import {StyleSheet, Text, View, TextInput, Button, StatusBar, SafeAreaView, FlatList, TouchableOpacity, Modal} from 'react-native';
 
-import { inputTask } from './components/index';
-import {taskItem} from './components/task/item/index';
+import { InputTask } from './components/index';
+import { TaskItem } from './components/task/item/index';
 import { styles } from './styles';
 import { useState } from 'react';
 
@@ -51,7 +51,7 @@ export default function App() {
 
   const renderItem = ({item}) => (
     
-      <taskItem item = {item} onPressItem = {onHandlerModal}/>
+      <TaskItem item = {item} onPressItem = {onHandlerModal}/>
   )
 
   
@@ -68,7 +68,7 @@ export default function App() {
     <SafeAreaView style={styles.safeArea}>  
       <View style={styles.container}>
         
-        <inputTask 
+        <InputTask 
           borderColor = {borderColor}
           onHadlerBlur = {onHadlerBlur}
           onHadlerChangeText = {onHadlerChangeText}

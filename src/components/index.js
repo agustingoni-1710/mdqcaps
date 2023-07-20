@@ -1,2 +1,2 @@
-export { default as inputTask } from './inputTask/index';
-export { default as taskItem } from './task/item/index';
+export { default as InputTask } from './inputTask/index';
+export { default as TaskItem } from './task/item/index';

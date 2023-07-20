@@ -3,7 +3,7 @@ import { Text, TouchableOpacity } from "react-native"
 import { styles } from "./styles"
 
 
-const taskItem = ({onPressItem, item}) => {
+const TaskItem = ({onPressItem, item}) => {
     return (
       <TouchableOpacity onPress={() => onPressItem(item)} style={styles.containerItem}>
         <Text style={styles.listItem}>{item.value}</Text>
@@ -12,4 +12,4 @@ const taskItem = ({onPressItem, item}) => {
     )
 }
 
-export default taskItem;
+export default TaskItem;
