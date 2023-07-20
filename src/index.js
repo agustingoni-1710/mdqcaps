@@ -1,5 +1,7 @@
 import {StyleSheet, Text, View, TextInput, Button, StatusBar, SafeAreaView, FlatList, TouchableOpacity, Modal} from 'react-native';
 
+import { inputTask } from './components/index';
+import {taskItem} from './components/task/item/index';
 import { styles } from './styles';
 import { useState } from 'react';
 
@@ -48,10 +50,8 @@ export default function App() {
   }
 
   const renderItem = ({item}) => (
-    <TouchableOpacity onPress={() => onHandlerModal(item)} style={styles.containerItem}>
-      <Text style={styles.listItem}>{item.value}</Text>
-      <Text style={styles.icon}>X</Text>
-    </TouchableOpacity>
+    
+      <taskItem item = {item} onPressItem = {onHandlerModal}/>
   )
 
   
@@ -67,22 +67,16 @@ export default function App() {
     // onFocus es un evento para cambiar de color y onBlur vuelve al color inicial
     <SafeAreaView style={styles.safeArea}>  
       <View style={styles.container}>
-        <View style={styles.inputContainer}>
-          <TextInput 
-            style={[styles.input, {borderColor: borderColor}]} 
-            placeholder='add new tasks' 
-            autoCapitalize='none' 
-            autoCorrect={false} 
-            selectionColor={'#E3B6F6'}
-            placeholderTextColor={'#CCCCCC'}
-            onFocus={onHadlerFocus}
-            onBlur={onHadlerBlur}
-            onChangeText={onHadlerChangeText}
-            value={task}
-          /> 
-           
-          <Button disabled={task.length == 0} title='Create'color='#424D9E' onPress={onHadlerCreateTask}/>
-        </View>
+        
+        <inputTask 
+          borderColor = {borderColor}
+          onHadlerBlur = {onHadlerBlur}
+          onHadlerChangeText = {onHadlerChangeText}
+          onHadlerCreateTask = {onHadlerCreateTask}
+          onHadlerFocus = {onHadlerFocus}
+          task = {task}
+        />
+        
         
           <FlatList
             data={tasks}

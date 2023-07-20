@@ -14,62 +14,20 @@ export const styles = StyleSheet.create({
       
     },
   
-    inputContainer : {
-      flexDirection: 'row',
-      justifyContent: 'space-between'
-      
-    },
-    input: {
-      flex: 0.95,
-      borderWidth: 1,
-      borderRadius: 10,
-      paddingHorizontal: 10, // separa el texto del borde que se encuentra dentro del input
-      color: 'blue',
-      height: 40,
-      fontSize: 14,  
-    },
-
     listContainer: {
         
         marginTop:25,
         
     },
 
-    containerItem: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        paddingVertical: 20,
-        backgroundColor: '#E3B6F6',
-        paddingHorizontal:10,
-        borderRadius: 10,
-        color: '#212121',
-        shadowColor: "#000", //sombra en la lista.  
-        shadowOffset: {
-            width: 0,
-            height: 1,
-        },
-        shadowOpacity: 0.22,
-        shadowRadius: 2.22,
-        marginBottom: 15,
-        elevation: 3,
-
-    },
-    listItem: {
-        fontSize: 15,
-        fontWeight : 'bold',
-        color: '#212121',
-    },
+    
 
     list: {
       
       gap: 15,// gap sirve para que la linea de la lista tome todo el tamano de la pantalla
       paddingBottom: 20,
     },
-    icon: {
-      color: 'red',
-      fontSize: 16,
-    },
+   
 
     modalContainer: {
       justifyContent: 'center',
