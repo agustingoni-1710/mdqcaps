@@ -1,7 +1,7 @@
 import {StyleSheet, Text, View, TextInput, Button, StatusBar, SafeAreaView, FlatList, TouchableOpacity, Modal} from 'react-native';
 
-import { InputTask } from './components/index';
-import { TaskItem } from './components/task/item/index';
+import { InputTask } from './components';
+import { TaskItem } from './components';
 import { styles } from './styles';
 import { useState } from 'react';
 
@@ -69,12 +69,12 @@ export default function App() {
       <View style={styles.container}>
         
         <InputTask 
-          borderColor = {borderColor}
-          onHadlerBlur = {onHadlerBlur}
-          onHadlerChangeText = {onHadlerChangeText}
-          onHadlerCreateTask = {onHadlerCreateTask}
-          onHadlerFocus = {onHadlerFocus}
-          task = {task}
+          borderColor={borderColor}
+          onHadlerBlur={onHadlerBlur}
+          onHadlerChangeText={onHadlerChangeText}
+          onHadlerCreateTask={onHadlerCreateTask}
+          onHadlerFocus={onHadlerFocus}
+          task={task}
         />
         
         
